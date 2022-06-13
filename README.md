@@ -2,5 +2,5 @@
 
 Syntax like 
 ```sql
-select <attrs> from <url> where <selector> like <regExp>
+select [<attrs>] from <url> where [<selector>] like <regExp>
 ```
