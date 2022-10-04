@@ -3,7 +3,7 @@ const inputQuery = document.getElementById('query')
 const rootRes = document.getElementById('res')
 //SELECT [innerHTML] FROM https://getbootstrap.com/docs/5.2/examples/ WHERE [h3.h5] LIKE ^navbar
 btnExec.addEventListener('click', () => {
-  const query = inputQuery.value.trim()
+  const query = inputQuery.value.trim() // получение запрос
   rootRes.innerHTML = ''
   fetch('http://localhost:8000', {
     method: 'POST',
@@ -18,7 +18,7 @@ btnExec.addEventListener('click', () => {
     if (data.err) throw new Error(data.err)
     const res = data.result
 
-    for (const key of Object.keys(res)) {
+    for (const key of Object.keys(res)) { // Вывод результата parsera
       const h3 = document.createElement('h3')
       h3.innerText = key
       const list = document.createElement('div')
@@ -32,7 +32,7 @@ btnExec.addEventListener('click', () => {
       rootRes.append(list)
     }
   })
-  .catch(e => {
+  .catch(e => { // Вывод ошибки
     const text = document.createElement('div')
     text.classList.add('text-danger', 'fs-3')
     text.innerText = e.message
